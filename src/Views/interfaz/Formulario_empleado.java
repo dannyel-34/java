@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+ 
+//importa el paquete views de la interfaz
 package Views.interfaz;
 
+
+//añade las librerias de java
 import otros.Conectado_db;
 import java.sql.*;
 import java.util.Calendar;
@@ -14,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Sena
+ * @author juan
  */
 public class Formulario_empleado extends javax.swing.JFrame {
 
@@ -31,7 +35,7 @@ public class Formulario_empleado extends javax.swing.JFrame {
         registrarse.setVisible(true);
         CRUD.setVisible(false);
     }
-
+    //crea la instancia 
     Calendar MiCalendario = Calendar.getInstance();
 
     /**
@@ -654,7 +658,7 @@ public class Formulario_empleado extends javax.swing.JFrame {
             for (int i = jTable1.getRowCount() - 1; i >= 0; i--) {
                 ((DefaultTableModel) jTable1.getModel()).removeRow(i);
             }
-
+            //ciclo que recorre las posiciones de la columna de la tabla 
             while (rs.next()) {
                 filas[0] = rs.getInt(1);
                 filas[1] = rs.getString(2);
@@ -730,6 +734,7 @@ public class Formulario_empleado extends javax.swing.JFrame {
             Connection cn = sqlite.Conectar();
             Statement stmt = cn.createStatement();
             ResultSet rs;
+            //funcion de sql que hace la busqueda por id en el jtextfield 
             String busquedaSQL = "SELECT * FROM nomina WHERE ID = '" + jTextField6.getText() + "';";
 
             rs = stmt.executeQuery(busquedaSQL);
@@ -970,7 +975,10 @@ public class Formulario_empleado extends javax.swing.JFrame {
         }
 
         gerente.setVisible(true);
-
+        
+        /**
+         * realiza el log de registro del usuario
+         */ 
         Date d = new Date();
         System.out.println("Fecha: " + d.getDate() + "/" + (d.getMonth() + 1) + "/" + (d.getYear() + 1900));
         System.out.println("Hora: " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
@@ -999,7 +1007,11 @@ public class Formulario_empleado extends javax.swing.JFrame {
         }
 
         gerente.setVisible(true);
-
+        
+        
+        /**
+         * realiza el log de registro del usuario
+         */    
         Date d = new Date();
         System.out.println("Fecha: " + d.getDate() + "/" + (d.getMonth() + 1) + "/" + (d.getYear() + 1900));
         System.out.println("Hora: " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
